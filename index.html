@@ -279,7 +279,7 @@
   <!-- WALLET READER -->
   <div class="wallet-bar">
     <div style="font-family:var(--mono);font-size:9px;color:var(--text3);white-space:nowrap;">WALLET (read-only)</div>
-    <input id="wallet-input" type="text" placeholder="CjApZoSeUaSi5ssxwCxwV5kTvgNwnSe8Qdv9pk3pjHaW" />
+    <input id="wallet-input" type="text" placeholder="Enter a Solana wallet address" />
     <button class="btn" onclick="connectWallet()">READ</button>
     <div style="font-family:var(--mono);font-size:10px;color:var(--text3);" id="wallet-status">—</div>
   </div>
@@ -487,7 +487,7 @@ function connectWallet() {
 
 async function readWallet(addr) {
   try {
-    const heliusKey = 'b1a0c88f-5d8e-4738-8974-3ce353158248';
+    const heliusKey = ''; // SECURITY: the previous key was public in this repo and has been rotated -- never commit a real key; a browser page cannot hold a secret.
     const res = await fetch(`https://mainnet.helius-rpc.com/?api-key=${heliusKey}`, {
       method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({jsonrpc:'2.0',id:1,method:'getBalance',params:[addr,{commitment:'confirmed'}]})
